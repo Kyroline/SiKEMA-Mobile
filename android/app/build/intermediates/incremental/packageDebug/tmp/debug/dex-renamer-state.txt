@@ -1,10 +1,10 @@
-#Mon Nov 20 19:58:57 ICT 2023
-base.0=D\:\\ReactNative\\SiKEMA_Mobile\\android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
-base.1=D\:\\ReactNative\\SiKEMA_Mobile\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
-base.2=D\:\\ReactNative\\SiKEMA_Mobile\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.3=D\:\\ReactNative\\SiKEMA_Mobile\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\14\\classes.dex
-base.4=D\:\\ReactNative\\SiKEMA_Mobile\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\2\\classes.dex
-base.5=D\:\\ReactNative\\SiKEMA_Mobile\\android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
+#Sat Dec 02 21:09:56 WIB 2023
+base.0=D\:\\Kuliah\\SEMESTER 5\\Desain dan Perancangan Sistem Informasi\\SiKEMA-Mobile\\android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.1=D\:\\Kuliah\\SEMESTER 5\\Desain dan Perancangan Sistem Informasi\\SiKEMA-Mobile\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
+base.2=D\:\\Kuliah\\SEMESTER 5\\Desain dan Perancangan Sistem Informasi\\SiKEMA-Mobile\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.3=D\:\\Kuliah\\SEMESTER 5\\Desain dan Perancangan Sistem Informasi\\SiKEMA-Mobile\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\14\\classes.dex
+base.4=D\:\\Kuliah\\SEMESTER 5\\Desain dan Perancangan Sistem Informasi\\SiKEMA-Mobile\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\2\\classes.dex
+base.5=D\:\\Kuliah\\SEMESTER 5\\Desain dan Perancangan Sistem Informasi\\SiKEMA-Mobile\\android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.2=0/classes.dex
