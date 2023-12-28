@@ -15,10 +15,20 @@ import java.util.ArrayList;
 import com.reactnativetethering.hotspot.HotspotPackage;
 // @react-native-tethering/wifi
 import com.reactnativetethering.wifi.WifiPackage;
+// react-native-document-picker
+import com.reactnativedocumentpicker.RNDocumentPickerPackage;
+// react-native-gesture-handler
+import com.swmansion.gesturehandler.RNGestureHandlerPackage;
 // react-native-network-info
 import com.pusherman.networkinfo.RNNetworkInfoPackage;
+// react-native-reanimated
+import com.swmansion.reanimated.ReanimatedPackage;
 // react-native-safe-area-context
 import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
+// react-native-screens
+import com.swmansion.rnscreens.RNScreensPackage;
+// react-native-svg
+import com.horcrux.svg.SvgPackage;
 // react-native-tcp-socket
 import com.asterinet.react.tcpsocket.TcpSocketPackage;
 // react-native-vector-icons
@@ -70,8 +80,13 @@ public class PackageList {
       new MainReactPackage(mConfig),
       new HotspotPackage(),
       new WifiPackage(),
+      new RNDocumentPickerPackage(),
+      new RNGestureHandlerPackage(),
       new RNNetworkInfoPackage(),
+      new ReanimatedPackage(),
       new SafeAreaContextPackage(),
+      new RNScreensPackage(),
+      new SvgPackage(),
       new TcpSocketPackage(),
       new VectorIconsPackage()
     ));
