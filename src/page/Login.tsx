@@ -1,7 +1,16 @@
+import React, { useContext, useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
-import React from 'react';
+import { AuthContext } from '../context/AuthContext';
 
 const Login = () => {
+  const [creds, setCreds] = useState<string>('')
+  const [pass, setPass] = useState<string>('')
+  const {login} = useContext(AuthContext)
+
+  const doLogin = () => {
+    login(creds, pass)
+    console.log(`Sending login with data email '${creds}' password '${pass}'`)
+  }
   return (
     // Main Container //
     <View style={style.mainContainer}>
@@ -23,15 +32,17 @@ const Login = () => {
         <TextInput style={style.inputStyle}
           placeholderTextColor={'#978D8D'}
           placeholder='Email or Your NIM/NIP'
+          onChangeText={(text) => {setCreds(text)}}
         />
     {/* Box Password */}
         <TextInput style={style.inputStyle}
           placeholderTextColor={'#978D8D'}
           placeholder='Password'
           secureTextEntry={true}
+          onChangeText={(text) => {setPass(text)}}
         />
     {/* Button Login */}
-        <TouchableOpacity style={style.buttonStyle}>
+        <TouchableOpacity style={style.buttonStyle} onPress={doLogin}>
           <Text style={style.buttonText}>Login</Text>
         </TouchableOpacity>
       </View>

@@ -13,7 +13,7 @@ const options = {
     // interface: "wifi",
 };
 
-const App = () => {
+const TestingApp = () => {
     const [state, setState] = useState(false)
     const [ip, setIp] = useState<string | null>(null)
     const [ssid, setSsid] = useState<string | null>(null)
@@ -32,14 +32,14 @@ const App = () => {
 
     const turnOnHotspot = async () => {
         try {
-            // await HotspotManager.setHotspotEnabled(!state);
+            await HotspotManager.setHotspotEnabled(!state);
             await HotspotManager.isHotspotEnabled().then((val) => {
                 setState(val)
             })
-            await HotspotManager.setLocalHotspotEnabled(!state).then((network) => {
-                setSsid(network.ssid)
-                setPass(network.password)
-            })
+            // await HotspotManager.setLocalHotspotEnabled(!state).then((network) => {
+            //     setSsid(network.ssid)
+            //     setPass(network.password)
+            // })
             ToastAndroid.show(`Hotspot ${!state ? 'enabled' : 'disabled'}`, ToastAndroid.SHORT)
         } catch (error: any) {
             if (error instanceof TetheringError) {
@@ -81,9 +81,6 @@ const App = () => {
         client.on('data', function (data) {
             console.log('message was received', data);
         });
-        client.on('data', function (data) {
-            console.log('message was received', data);
-        });
 
         client.on('error', function (error) {
             console.log(error);
@@ -113,4 +110,4 @@ const App = () => {
     )
 }
 
-export default App
+export default TestingApp

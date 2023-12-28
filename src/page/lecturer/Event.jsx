@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { View, ScrollView, StyleSheet, Dimensions, Text, Pressable, TextInput, Button } from 'react-native'
+import { Modal, Portal } from 'react-native-paper'
 import Icon from 'react-native-vector-icons/FontAwesome6'
-import CheckBox from 'react-native-check-box'
+// import CheckBox from 'react-native-check-box'
+import QRCode from 'react-native-qrcode-svg'
+import { APIClient } from '../../api/backend'
+import { AuthContext } from '../../context/AuthContext'
 
 const screenHeight = Dimensions.get('window').height
 const screenWidth = Dimensions.get('window').width
@@ -76,16 +80,55 @@ const styles = StyleSheet.create({
     },
 })
 
-const Event = () => {
+const Event = ({ route, navigation }) => {
+    const { jwtToken } = useContext(AuthContext)
+    const [visible, setVisible] = useState(false)
+    const showModal = () => setVisible(true)
+    const hideModal = () => setVisible(false)
+    const [studentData, setStudentData] = useState([])
+    const [eventData, setEventData] = useState([])
+
+    const getEventData = async () => {
+        let res1 = await APIClient(jwtToken).get('/api/lecturer/1/event/13')
+
+        let res2 = await APIClient(jwtToken).get(`/api/class/${res1.data.data.class_id}`)
+        getPresent(res2.data.data.students, res1.data.data)
+    }
+
+    const getPresent = (allStudent, event) => {
+        var presentStudent = event.students
+        var student = allStudent
+        for (var i = 0, sLen = student.length; i < sLen; i++) {
+            student[i].status = 0
+            if (presentStudent == null)
+                continue
+            for (var j = 0, pLen = presentStudent.length; j < pLen; j++) {
+                if (student[i].Nim == presentStudent[j].Nim) {
+                    student[i].status = 1
+                    console.log(`Student ${student[i].Nim} hadir`)
+                }
+            }
+        }
+
+        setEventData(event)
+        setStudentData(student)
+    }
+
+    useEffect(() => {
+        const unsubscribe = navigation.addListener('focus', () => {
+            getEventData()
+        });
+
+        return unsubscribe;
+    }, [navigation]);
+
     return (
         <ScrollView style={styles.container}>
             <View style={styles.header}>
                 <View style={styles.headerBackground} />
                 <View style={styles.headerSubcard} />
                 <View style={styles.headerTitle} >
-                    {/* <Text style={styles.subtitle}>{currentTime.toLocaleTimeString()}</Text> */}
                     <Pressable style={styles.setting} onPress={() => { }}>
-                        {/* navigation.navigate('Setting') */}
                         <Icon name="chevron-left" size={20} color="white" />
                     </Pressable>
                     <Text style={styles.title}>Detail Presensi</Text>
@@ -94,23 +137,23 @@ const Event = () => {
                     <View style={{ flex: 1, flexDirection: 'column' }}>
                         <View style={{ marginBottom: 5 }}>
                             <Text style={styles.points}>Mata Kuliah</Text>
-                            <Text style={styles.parameterValue}>Perancangan Sistem Informasi</Text>
+                            <Text style={styles.parameterValue}>{eventData && eventData.course ? (eventData.course.name) : ('')}</Text>
                         </View>
                         <View style={{ marginBottom: 5 }}>
                             <Text style={styles.points}>Kelas</Text>
-                            <Text style={styles.parameterValue}>TIA2021</Text>
+                            <Text style={styles.parameterValue}>{eventData && eventData.class ? (eventData.class.name) : ('')}</Text>
                         </View>
                         <View style={{ marginBottom: 5 }}>
                             <Text style={styles.points}>Pertemuan</Text>
-                            <Text style={styles.parameterValue}>1</Text>
+                            <Text style={styles.parameterValue}>{eventData ? (eventData.meet) : ('')}</Text>
                         </View>
                         <View style={{ marginBottom: 5 }}>
                             <Text style={styles.points}>Status</Text>
-                            <Text style={styles.parameterValue}>Terbuka</Text>
+                            <Text style={styles.parameterValue}>{eventData ? (eventData.status) : ('')}</Text>
                         </View>
                         <View style={{ justifyContent: 'space-between', alignItems: 'center', flex: 1, flexDirection: 'row' }}>
                             <Button
-                                onPress={() => { }}
+                                onPress={showModal}
                                 title="QR Code"
                                 color="#E46B6B"
                                 accessibilityLabel="Learn more about this purple button"
@@ -131,117 +174,24 @@ const Event = () => {
                             <Text style={tableStyles.headerCellName}>Nama</Text>
                             <Text style={tableStyles.headerCellStatus}>Status</Text>
                         </View>
-
-                        <View style={tableStyles.row}>
-                            <Text style={tableStyles.cell}>43321001</Text>
-                            <Text style={tableStyles.cellName}>Afif Izha Darmawan</Text>
-                            <Text style={tableStyles.cellStatus}>Masuk</Text>
-                        </View>
-
-                        <View style={tableStyles.row}>
-                            <Text style={tableStyles.cell}>43321002</Text>
-                            <Text style={tableStyles.cellName}>Aryanto Andri Sobirin</Text>
-                            <Text style={tableStyles.cellStatus}>Masuk</Text>
-                        </View>
-
-                        <View style={tableStyles.row}>
-                            <Text style={tableStyles.cell}>43321002</Text>
-                            <Text style={tableStyles.cellName}>Aryanto Andri Sobirin</Text>
-                            <Text style={tableStyles.cellStatus}>Masuk</Text>
-                        </View>
-
-                        <View style={tableStyles.row}>
-                            <Text style={tableStyles.cell}>43321002</Text>
-                            <Text style={tableStyles.cellName}>Aryanto Andri Sobirin</Text>
-                            <Text style={tableStyles.cellStatus}>Masuk</Text>
-                        </View>
-
-                        <View style={tableStyles.row}>
-                            <Text style={tableStyles.cell}>43321002</Text>
-                            <Text style={tableStyles.cellName}>Aryanto Andri Sobirin</Text>
-                            <Text style={tableStyles.cellStatus}>Masuk</Text>
-                        </View>
-
-                        <View style={tableStyles.row}>
-                            <Text style={tableStyles.cell}>43321002</Text>
-                            <Text style={tableStyles.cellName}>Aryanto Andri Sobirin</Text>
-                            <Text style={tableStyles.cellStatus}>Masuk</Text>
-                        </View>
-
-                        <View style={tableStyles.row}>
-                            <Text style={tableStyles.cell}>43321002</Text>
-                            <Text style={tableStyles.cellName}>Aryanto Andri Sobirin</Text>
-                            <Text style={tableStyles.cellStatus}>Masuk</Text>
-                        </View>
-
-                        <View style={tableStyles.row}>
-                            <Text style={tableStyles.cell}>43321002</Text>
-                            <Text style={tableStyles.cellName}>Aryanto Andri Sobirin</Text>
-                            <Text style={tableStyles.cellStatus}>Masuk</Text>
-                        </View>
-
-                        <View style={tableStyles.row}>
-                            <Text style={tableStyles.cell}>43321002</Text>
-                            <Text style={tableStyles.cellName}>Aryanto Andri Sobirin</Text>
-                            <Text style={tableStyles.cellStatus}>Masuk</Text>
-                        </View>
-
-                        <View style={tableStyles.row}>
-                            <Text style={tableStyles.cell}>43321002</Text>
-                            <Text style={tableStyles.cellName}>Aryanto Andri Sobirin</Text>
-                            <Text style={tableStyles.cellStatus}>Masuk</Text>
-                        </View>
-
-                        <View style={tableStyles.row}>
-                            <Text style={tableStyles.cell}>43321002</Text>
-                            <Text style={tableStyles.cellName}>Aryanto Andri Sobirin</Text>
-                            <Text style={tableStyles.cellStatus}>Masuk</Text>
-                        </View>
-
-                        <View style={tableStyles.row}>
-                            <Text style={tableStyles.cell}>43321002</Text>
-                            <Text style={tableStyles.cellName}>Aryanto Andri Sobirin</Text>
-                            <Text style={tableStyles.cellStatus}>Masuk</Text>
-                        </View>
-
-                        <View style={tableStyles.row}>
-                            <Text style={tableStyles.cell}>43321002</Text>
-                            <Text style={tableStyles.cellName}>Aryanto Andri Sobirin</Text>
-                            <Text style={tableStyles.cellStatus}>Masuk</Text>
-                        </View>
-
-                        <View style={tableStyles.row}>
-                            <Text style={tableStyles.cell}>43321002</Text>
-                            <Text style={tableStyles.cellName}>Aryanto Andri Sobirin</Text>
-                            <Text style={tableStyles.cellStatus}>Masuk</Text>
-                        </View>
-
-                        <View style={tableStyles.row}>
-                            <Text style={tableStyles.cell}>43321002</Text>
-                            <Text style={tableStyles.cellName}>Aryanto Andri Sobirin</Text>
-                            <Text style={tableStyles.cellStatus}>Masuk</Text>
-                        </View>
-
-                        <View style={tableStyles.row}>
-                            <Text style={tableStyles.cell}>43321002</Text>
-                            <Text style={tableStyles.cellName}>Aryanto Andri Sobirin</Text>
-                            <Text style={tableStyles.cellStatus}>Masuk</Text>
-                        </View>
-
-                        <View style={tableStyles.row}>
-                            <Text style={tableStyles.cell}>43321002</Text>
-                            <Text style={tableStyles.cellName}>Aryanto Andri Sobirin</Text>
-                            <Text style={tableStyles.cellStatus}>Masuk</Text>
-                        </View>
-
-                        <View style={tableStyles.row}>
-                            <Text style={tableStyles.cell}>43321002</Text>
-                            <Text style={tableStyles.cellName}>Aryanto Andri Sobirin</Text>
-                            <Text style={tableStyles.cellStatus}>Masuk</Text>
-                        </View>
+                        {studentData ? studentData.map((item) => (
+                            <View key={item.Nim} style={tableStyles.row}>
+                                <Text style={tableStyles.cell}>{item.Nim}</Text>
+                                <Text style={tableStyles.cellName}>{item.Name}</Text>
+                                <Text style={tableStyles.cellStatus}>{item.status ? (item.status == 1 ? 'Hadir' : 'Tidak hadir') : 'Tidak hadir'}</Text>
+                            </View>
+                        )) : []}
                     </View>
                 </View>
             </View>
+            <Portal>
+                <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={{ width: '100%', backgroundColor: 'white', padding: 20 }}>
+                    <QRCode
+                        value='{"ssid": "aaaaaa", "password": "12345678"}'
+                        size={300}
+                    />
+                </Modal>
+            </Portal>
         </ScrollView>
     )
 }
