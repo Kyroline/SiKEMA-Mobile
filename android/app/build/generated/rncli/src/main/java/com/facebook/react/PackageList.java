@@ -11,16 +11,26 @@ import com.facebook.react.shell.MainReactPackage;
 import java.util.Arrays;
 import java.util.ArrayList;
 
+// @react-native-async-storage/async-storage
+import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
+// @react-native-community/checkbox
+import com.reactnativecommunity.checkbox.ReactCheckBoxPackage;
 // @react-native-tethering/hotspot
 import com.reactnativetethering.hotspot.HotspotPackage;
 // @react-native-tethering/wifi
 import com.reactnativetethering.wifi.WifiPackage;
+// react-native-camera
+import org.reactnative.camera.RNCameraPackage;
 // react-native-document-picker
 import com.reactnativedocumentpicker.RNDocumentPickerPackage;
+// react-native-fs
+import com.rnfs.RNFSPackage;
 // react-native-gesture-handler
 import com.swmansion.gesturehandler.RNGestureHandlerPackage;
 // react-native-network-info
 import com.pusherman.networkinfo.RNNetworkInfoPackage;
+// react-native-permissions
+import com.zoontek.rnpermissions.RNPermissionsPackage;
 // react-native-reanimated
 import com.swmansion.reanimated.ReanimatedPackage;
 // react-native-safe-area-context
@@ -33,6 +43,8 @@ import com.horcrux.svg.SvgPackage;
 import com.asterinet.react.tcpsocket.TcpSocketPackage;
 // react-native-vector-icons
 import com.oblador.vectoricons.VectorIconsPackage;
+// react-native-wifi-reborn
+import com.reactlibrary.rnwifi.RNWifiPackage;
 
 public class PackageList {
   private Application application;
@@ -78,17 +90,23 @@ public class PackageList {
   public ArrayList<ReactPackage> getPackages() {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(mConfig),
+      new AsyncStoragePackage(),
+      new ReactCheckBoxPackage(),
       new HotspotPackage(),
       new WifiPackage(),
+      new RNCameraPackage(),
       new RNDocumentPickerPackage(),
+      new RNFSPackage(),
       new RNGestureHandlerPackage(),
       new RNNetworkInfoPackage(),
+      new RNPermissionsPackage(),
       new ReanimatedPackage(),
       new SafeAreaContextPackage(),
       new RNScreensPackage(),
       new SvgPackage(),
       new TcpSocketPackage(),
-      new VectorIconsPackage()
+      new VectorIconsPackage(),
+      new RNWifiPackage()
     ));
   }
 }

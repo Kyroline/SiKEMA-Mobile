@@ -20,104 +20,224 @@
 14    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 14-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:4:3-74
 14-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:4:20-71
-15    <uses-permission android:name="android.permission.INTERNET" />
-15-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:5:3-65
-15-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:5:20-62
-16    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-16-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:6:3-77
-16-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:6:20-74
-17    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-17-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:7:3-79
-17-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:7:20-76
-18    <uses-permission android:name="android.permission.WRITE_SETTINGS" /> <!-- For local hotspot android 13+ -->
-18-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:9:3-70
-18-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:9:20-68
-19    <uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES" />
-19-->[:react-native-tethering_hotspot] D:\ReactNative\SiKEMA_Mobile\node_modules\@react-native-tethering\hotspot\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:5-78
-19-->[:react-native-tethering_hotspot] D:\ReactNative\SiKEMA_Mobile\node_modules\@react-native-tethering\hotspot\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:22-75
-20    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
-20-->[:react-native-tcp-socket] D:\ReactNative\SiKEMA_Mobile\node_modules\react-native-tcp-socket\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-79
-20-->[:react-native-tcp-socket] D:\ReactNative\SiKEMA_Mobile\node_modules\react-native-tcp-socket\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:22-76
-21
-22    <application
-22-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:11:3-18:17
-23        android:name="com.polines.sikema.MainApplication"
-23-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:11:16-47
-24        android:allowBackup="false"
-24-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:11:162-189
-25        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-25-->[androidx.core:core:1.8.0] C:\Users\rwd31\.gradle\caches\transforms-3\9623e378e4dfc57c47793d0ffd25ee05\transformed\core-1.8.0\AndroidManifest.xml:24:18-86
-26        android:debuggable="true"
-27        android:icon="@mipmap/ic_launcher"
-27-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:11:81-115
-28        android:label="@string/app_name"
-28-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:11:48-80
-29        android:roundIcon="@mipmap/ic_launcher_round"
-29-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:11:116-161
-30        android:theme="@style/AppTheme"
-30-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:11:190-221
-31        android:usesCleartextTraffic="true" >
-31-->D:\ReactNative\SiKEMA_Mobile\android\app\src\debug\AndroidManifest.xml:8:9-44
-32        <activity
-32-->D:\ReactNative\SiKEMA_Mobile\android\app\src\debug\AndroidManifest.xml:11:9-111
-33            android:name="com.facebook.react.devsupport.DevSettingsActivity"
-33-->D:\ReactNative\SiKEMA_Mobile\android\app\src\debug\AndroidManifest.xml:11:19-83
-34            android:exported="false" />
-34-->D:\ReactNative\SiKEMA_Mobile\android\app\src\debug\AndroidManifest.xml:11:84-108
-35        <activity
-35-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:12:5-17:16
-36            android:name="com.polines.sikema.MainActivity"
-36-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:12:15-43
-37            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
-37-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:12:77-186
-38            android:exported="true"
-38-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:12:262-285
-39            android:label="@string/app_name"
-39-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:12:44-76
-40            android:launchMode="singleTask"
-40-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:12:187-218
-41            android:windowSoftInputMode="adjustResize" >
-41-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:12:219-261
-42            <intent-filter>
-42-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:13:7-16:23
-43                <action android:name="android.intent.action.MAIN" />
-43-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:14:9-61
-43-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:14:17-58
-44
-45                <category android:name="android.intent.category.LAUNCHER" />
-45-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:15:9-69
-45-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:15:19-66
-46            </intent-filter>
-47        </activity>
-48
-49        <meta-data
-49-->[com.facebook.soloader:soloader:0.10.5] C:\Users\rwd31\.gradle\caches\transforms-3\ec3312a013bd7d8a70466a1977a1dba4\transformed\jetified-soloader-0.10.5\AndroidManifest.xml:12:9-14:37
-50            android:name="com.facebook.soloader.enabled"
-50-->[com.facebook.soloader:soloader:0.10.5] C:\Users\rwd31\.gradle\caches\transforms-3\ec3312a013bd7d8a70466a1977a1dba4\transformed\jetified-soloader-0.10.5\AndroidManifest.xml:13:13-57
-51            android:value="false" />
-51-->[com.facebook.soloader:soloader:0.10.5] C:\Users\rwd31\.gradle\caches\transforms-3\ec3312a013bd7d8a70466a1977a1dba4\transformed\jetified-soloader-0.10.5\AndroidManifest.xml:14:13-34
-52
-53        <provider
-53-->[androidx.emoji2:emoji2:1.2.0] C:\Users\rwd31\.gradle\caches\transforms-3\259206a491dfa4b8b6052b2b1c41d979\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
-54            android:name="androidx.startup.InitializationProvider"
-54-->[androidx.emoji2:emoji2:1.2.0] C:\Users\rwd31\.gradle\caches\transforms-3\259206a491dfa4b8b6052b2b1c41d979\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
-55            android:authorities="com.polines.sikema.androidx-startup"
-55-->[androidx.emoji2:emoji2:1.2.0] C:\Users\rwd31\.gradle\caches\transforms-3\259206a491dfa4b8b6052b2b1c41d979\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
-56            android:exported="false" >
-56-->[androidx.emoji2:emoji2:1.2.0] C:\Users\rwd31\.gradle\caches\transforms-3\259206a491dfa4b8b6052b2b1c41d979\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
-57            <meta-data
-57-->[androidx.emoji2:emoji2:1.2.0] C:\Users\rwd31\.gradle\caches\transforms-3\259206a491dfa4b8b6052b2b1c41d979\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
-58                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-58-->[androidx.emoji2:emoji2:1.2.0] C:\Users\rwd31\.gradle\caches\transforms-3\259206a491dfa4b8b6052b2b1c41d979\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
-59                android:value="androidx.startup" />
-59-->[androidx.emoji2:emoji2:1.2.0] C:\Users\rwd31\.gradle\caches\transforms-3\259206a491dfa4b8b6052b2b1c41d979\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
-60            <meta-data
-60-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\rwd31\.gradle\caches\transforms-3\b1c537e6049df5a2dcb1a9b20b1a8868\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
-61                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-61-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\rwd31\.gradle\caches\transforms-3\b1c537e6049df5a2dcb1a9b20b1a8868\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
-62                android:value="androidx.startup" />
-62-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\rwd31\.gradle\caches\transforms-3\b1c537e6049df5a2dcb1a9b20b1a8868\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
-63        </provider>
-64    </application>
-65
-66</manifest>
+15    <uses-permission android:name="android.permission.CAMERA" />
+15-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:5:3-63
+15-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:5:20-60
+16    <uses-permission android:name="android.permission.INTERNET" />
+16-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:6:3-65
+16-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:6:20-62
+17    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+17-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:7:3-77
+17-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:7:20-74
+18    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+18-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:8:3-79
+18-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:8:20-76
+19    <uses-permission android:name="android.permission.VIBRATE" />
+19-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:9:3-63
+19-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:9:20-61
+20    <uses-permission android:name="android.permission.WRITE_SETTINGS" /> <!-- For local hotspot android 13+ -->
+20-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:11:3-70
+20-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:11:20-68
+21    <uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES" />
+21-->[:react-native-tethering_hotspot] D:\ReactNative\SiKEMA_Mobile\node_modules\@react-native-tethering\hotspot\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:5-78
+21-->[:react-native-tethering_hotspot] D:\ReactNative\SiKEMA_Mobile\node_modules\@react-native-tethering\hotspot\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:22-75
+22
+23    <uses-feature
+23-->[:react-native-camera] D:\ReactNative\SiKEMA_Mobile\node_modules\react-native-camera\android\build\intermediates\merged_manifest\generalDebug\AndroidManifest.xml:9:5-11:36
+24        android:name="android.hardware.camera"
+24-->[:react-native-camera] D:\ReactNative\SiKEMA_Mobile\node_modules\react-native-camera\android\build\intermediates\merged_manifest\generalDebug\AndroidManifest.xml:10:9-47
+25        android:required="false" />
+25-->[:react-native-camera] D:\ReactNative\SiKEMA_Mobile\node_modules\react-native-camera\android\build\intermediates\merged_manifest\generalDebug\AndroidManifest.xml:11:9-33
+26    <uses-feature
+26-->[:react-native-camera] D:\ReactNative\SiKEMA_Mobile\node_modules\react-native-camera\android\build\intermediates\merged_manifest\generalDebug\AndroidManifest.xml:12:5-14:36
+27        android:name="android.hardware.camera.autofocus"
+27-->[:react-native-camera] D:\ReactNative\SiKEMA_Mobile\node_modules\react-native-camera\android\build\intermediates\merged_manifest\generalDebug\AndroidManifest.xml:13:9-57
+28        android:required="false" />
+28-->[:react-native-camera] D:\ReactNative\SiKEMA_Mobile\node_modules\react-native-camera\android\build\intermediates\merged_manifest\generalDebug\AndroidManifest.xml:14:9-33
+29
+30    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+30-->[:react-native-fs] D:\ReactNative\SiKEMA_Mobile\node_modules\react-native-fs\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-81
+30-->[:react-native-fs] D:\ReactNative\SiKEMA_Mobile\node_modules\react-native-fs\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:22-78
+31    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+32    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+32-->[:react-native-tcp-socket] D:\ReactNative\SiKEMA_Mobile\node_modules\react-native-tcp-socket\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-79
+32-->[:react-native-tcp-socket] D:\ReactNative\SiKEMA_Mobile\node_modules\react-native-tcp-socket\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:22-76
+33
+34    <application
+34-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:13:3-20:17
+35        android:name="com.polines.sikema.MainApplication"
+35-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:13:16-47
+36        android:allowBackup="false"
+36-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:13:162-189
+37        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+37-->[androidx.core:core:1.8.0] C:\Users\rwd31\.gradle\caches\transforms-3\9623e378e4dfc57c47793d0ffd25ee05\transformed\core-1.8.0\AndroidManifest.xml:24:18-86
+38        android:debuggable="true"
+39        android:icon="@mipmap/ic_launcher"
+39-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:13:81-115
+40        android:label="@string/app_name"
+40-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:13:48-80
+41        android:roundIcon="@mipmap/ic_launcher_round"
+41-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:13:116-161
+42        android:theme="@style/AppTheme"
+42-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:13:190-221
+43        android:usesCleartextTraffic="true" >
+43-->D:\ReactNative\SiKEMA_Mobile\android\app\src\debug\AndroidManifest.xml:8:9-44
+44        <activity
+44-->D:\ReactNative\SiKEMA_Mobile\android\app\src\debug\AndroidManifest.xml:11:9-111
+45            android:name="com.facebook.react.devsupport.DevSettingsActivity"
+45-->D:\ReactNative\SiKEMA_Mobile\android\app\src\debug\AndroidManifest.xml:11:19-83
+46            android:exported="false" />
+46-->D:\ReactNative\SiKEMA_Mobile\android\app\src\debug\AndroidManifest.xml:11:84-108
+47        <activity
+47-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:14:5-19:16
+48            android:name="com.polines.sikema.MainActivity"
+48-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:14:15-43
+49            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
+49-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:14:77-186
+50            android:exported="true"
+50-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:14:262-285
+51            android:label="@string/app_name"
+51-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:14:44-76
+52            android:launchMode="singleTask"
+52-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:14:187-218
+53            android:windowSoftInputMode="adjustResize" >
+53-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:14:219-261
+54            <intent-filter>
+54-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:15:7-18:23
+55                <action android:name="android.intent.action.MAIN" />
+55-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:16:9-61
+55-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:16:17-58
+56
+57                <category android:name="android.intent.category.LAUNCHER" />
+57-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:17:9-69
+57-->D:\ReactNative\SiKEMA_Mobile\android\app\src\main\AndroidManifest.xml:17:19-66
+58            </intent-filter>
+59        </activity>
+60
+61        <service
+61-->[com.google.android.gms:play-services-mlkit-barcode-scanning:16.2.0] C:\Users\rwd31\.gradle\caches\transforms-3\97799781954acc3d7354150c72b84ae2\transformed\jetified-play-services-mlkit-barcode-scanning-16.2.0\AndroidManifest.xml:9:9-15:19
+62            android:name="com.google.mlkit.common.internal.MlKitComponentDiscoveryService"
+62-->[com.google.android.gms:play-services-mlkit-barcode-scanning:16.2.0] C:\Users\rwd31\.gradle\caches\transforms-3\97799781954acc3d7354150c72b84ae2\transformed\jetified-play-services-mlkit-barcode-scanning-16.2.0\AndroidManifest.xml:10:13-91
+63            android:directBootAware="true"
+63-->[com.google.mlkit:common:17.2.0] C:\Users\rwd31\.gradle\caches\transforms-3\53ad5d231868f74729b71d2d86f60f8e\transformed\jetified-common-17.2.0\AndroidManifest.xml:17:13-43
+64            android:exported="false" >
+64-->[com.google.android.gms:play-services-mlkit-barcode-scanning:16.2.0] C:\Users\rwd31\.gradle\caches\transforms-3\97799781954acc3d7354150c72b84ae2\transformed\jetified-play-services-mlkit-barcode-scanning-16.2.0\AndroidManifest.xml:11:13-37
+65            <meta-data
+65-->[com.google.android.gms:play-services-mlkit-barcode-scanning:16.2.0] C:\Users\rwd31\.gradle\caches\transforms-3\97799781954acc3d7354150c72b84ae2\transformed\jetified-play-services-mlkit-barcode-scanning-16.2.0\AndroidManifest.xml:12:13-14:85
+66                android:name="com.google.firebase.components:com.google.mlkit.vision.barcode.internal.BarcodeRegistrar"
+66-->[com.google.android.gms:play-services-mlkit-barcode-scanning:16.2.0] C:\Users\rwd31\.gradle\caches\transforms-3\97799781954acc3d7354150c72b84ae2\transformed\jetified-play-services-mlkit-barcode-scanning-16.2.0\AndroidManifest.xml:13:17-120
+67                android:value="com.google.firebase.components.ComponentRegistrar" />
+67-->[com.google.android.gms:play-services-mlkit-barcode-scanning:16.2.0] C:\Users\rwd31\.gradle\caches\transforms-3\97799781954acc3d7354150c72b84ae2\transformed\jetified-play-services-mlkit-barcode-scanning-16.2.0\AndroidManifest.xml:14:17-82
+68            <meta-data
+68-->[com.google.android.gms:play-services-mlkit-face-detection:16.2.0] C:\Users\rwd31\.gradle\caches\transforms-3\b9f3389d51c178b8d896d7baeb40c059\transformed\jetified-play-services-mlkit-face-detection-16.2.0\AndroidManifest.xml:12:13-14:85
+69                android:name="com.google.firebase.components:com.google.mlkit.vision.face.internal.FaceRegistrar"
+69-->[com.google.android.gms:play-services-mlkit-face-detection:16.2.0] C:\Users\rwd31\.gradle\caches\transforms-3\b9f3389d51c178b8d896d7baeb40c059\transformed\jetified-play-services-mlkit-face-detection-16.2.0\AndroidManifest.xml:13:17-114
+70                android:value="com.google.firebase.components.ComponentRegistrar" />
+70-->[com.google.android.gms:play-services-mlkit-face-detection:16.2.0] C:\Users\rwd31\.gradle\caches\transforms-3\b9f3389d51c178b8d896d7baeb40c059\transformed\jetified-play-services-mlkit-face-detection-16.2.0\AndroidManifest.xml:14:17-82
+71            <meta-data
+71-->[com.google.android.gms:play-services-mlkit-text-recognition:16.3.0] C:\Users\rwd31\.gradle\caches\transforms-3\b92474410cc7ebbd2fad55921816aa5f\transformed\jetified-play-services-mlkit-text-recognition-16.3.0\AndroidManifest.xml:12:13-14:85
+72                android:name="com.google.firebase.components:com.google.mlkit.vision.text.internal.TextRegistrar"
+72-->[com.google.android.gms:play-services-mlkit-text-recognition:16.3.0] C:\Users\rwd31\.gradle\caches\transforms-3\b92474410cc7ebbd2fad55921816aa5f\transformed\jetified-play-services-mlkit-text-recognition-16.3.0\AndroidManifest.xml:13:17-114
+73                android:value="com.google.firebase.components.ComponentRegistrar" />
+73-->[com.google.android.gms:play-services-mlkit-text-recognition:16.3.0] C:\Users\rwd31\.gradle\caches\transforms-3\b92474410cc7ebbd2fad55921816aa5f\transformed\jetified-play-services-mlkit-text-recognition-16.3.0\AndroidManifest.xml:14:17-82
+74            <meta-data
+74-->[com.google.mlkit:vision-common:16.5.0] C:\Users\rwd31\.gradle\caches\transforms-3\b86801a92097a5dcc8fcd3577b45f061\transformed\jetified-vision-common-16.5.0\AndroidManifest.xml:12:13-14:85
+75                android:name="com.google.firebase.components:com.google.mlkit.vision.common.internal.VisionCommonRegistrar"
+75-->[com.google.mlkit:vision-common:16.5.0] C:\Users\rwd31\.gradle\caches\transforms-3\b86801a92097a5dcc8fcd3577b45f061\transformed\jetified-vision-common-16.5.0\AndroidManifest.xml:13:17-124
+76                android:value="com.google.firebase.components.ComponentRegistrar" />
+76-->[com.google.mlkit:vision-common:16.5.0] C:\Users\rwd31\.gradle\caches\transforms-3\b86801a92097a5dcc8fcd3577b45f061\transformed\jetified-vision-common-16.5.0\AndroidManifest.xml:14:17-82
+77            <meta-data
+77-->[com.google.mlkit:common:17.2.0] C:\Users\rwd31\.gradle\caches\transforms-3\53ad5d231868f74729b71d2d86f60f8e\transformed\jetified-common-17.2.0\AndroidManifest.xml:20:13-22:85
+78                android:name="com.google.firebase.components:com.google.mlkit.common.internal.CommonComponentRegistrar"
+78-->[com.google.mlkit:common:17.2.0] C:\Users\rwd31\.gradle\caches\transforms-3\53ad5d231868f74729b71d2d86f60f8e\transformed\jetified-common-17.2.0\AndroidManifest.xml:21:17-120
+79                android:value="com.google.firebase.components.ComponentRegistrar" />
+79-->[com.google.mlkit:common:17.2.0] C:\Users\rwd31\.gradle\caches\transforms-3\53ad5d231868f74729b71d2d86f60f8e\transformed\jetified-common-17.2.0\AndroidManifest.xml:22:17-82
+80        </service>
+81
+82        <provider
+82-->[com.google.mlkit:common:17.2.0] C:\Users\rwd31\.gradle\caches\transforms-3\53ad5d231868f74729b71d2d86f60f8e\transformed\jetified-common-17.2.0\AndroidManifest.xml:9:9-13:38
+83            android:name="com.google.mlkit.common.internal.MlKitInitProvider"
+83-->[com.google.mlkit:common:17.2.0] C:\Users\rwd31\.gradle\caches\transforms-3\53ad5d231868f74729b71d2d86f60f8e\transformed\jetified-common-17.2.0\AndroidManifest.xml:10:13-78
+84            android:authorities="com.polines.sikema.mlkitinitprovider"
+84-->[com.google.mlkit:common:17.2.0] C:\Users\rwd31\.gradle\caches\transforms-3\53ad5d231868f74729b71d2d86f60f8e\transformed\jetified-common-17.2.0\AndroidManifest.xml:11:13-69
+85            android:exported="false"
+85-->[com.google.mlkit:common:17.2.0] C:\Users\rwd31\.gradle\caches\transforms-3\53ad5d231868f74729b71d2d86f60f8e\transformed\jetified-common-17.2.0\AndroidManifest.xml:12:13-37
+86            android:initOrder="99" />
+86-->[com.google.mlkit:common:17.2.0] C:\Users\rwd31\.gradle\caches\transforms-3\53ad5d231868f74729b71d2d86f60f8e\transformed\jetified-common-17.2.0\AndroidManifest.xml:13:13-35
+87
+88        <activity
+88-->[com.google.android.gms:play-services-base:17.6.0] C:\Users\rwd31\.gradle\caches\transforms-3\795676a79a0c8e1cc25c8530d5bb032b\transformed\jetified-play-services-base-17.6.0\AndroidManifest.xml:23:9-26:75
+89            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+89-->[com.google.android.gms:play-services-base:17.6.0] C:\Users\rwd31\.gradle\caches\transforms-3\795676a79a0c8e1cc25c8530d5bb032b\transformed\jetified-play-services-base-17.6.0\AndroidManifest.xml:24:13-79
+90            android:exported="false"
+90-->[com.google.android.gms:play-services-base:17.6.0] C:\Users\rwd31\.gradle\caches\transforms-3\795676a79a0c8e1cc25c8530d5bb032b\transformed\jetified-play-services-base-17.6.0\AndroidManifest.xml:25:13-37
+91            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+91-->[com.google.android.gms:play-services-base:17.6.0] C:\Users\rwd31\.gradle\caches\transforms-3\795676a79a0c8e1cc25c8530d5bb032b\transformed\jetified-play-services-base-17.6.0\AndroidManifest.xml:26:13-72
+92
+93        <meta-data
+93-->[com.google.android.gms:play-services-basement:17.6.0] C:\Users\rwd31\.gradle\caches\transforms-3\b63984d3b045444cdc55f8997826a36d\transformed\jetified-play-services-basement-17.6.0\AndroidManifest.xml:23:9-25:69
+94            android:name="com.google.android.gms.version"
+94-->[com.google.android.gms:play-services-basement:17.6.0] C:\Users\rwd31\.gradle\caches\transforms-3\b63984d3b045444cdc55f8997826a36d\transformed\jetified-play-services-basement-17.6.0\AndroidManifest.xml:24:13-58
+95            android:value="@integer/google_play_services_version" />
+95-->[com.google.android.gms:play-services-basement:17.6.0] C:\Users\rwd31\.gradle\caches\transforms-3\b63984d3b045444cdc55f8997826a36d\transformed\jetified-play-services-basement-17.6.0\AndroidManifest.xml:25:13-66
+96        <meta-data
+96-->[com.facebook.soloader:soloader:0.10.5] C:\Users\rwd31\.gradle\caches\transforms-3\ec3312a013bd7d8a70466a1977a1dba4\transformed\jetified-soloader-0.10.5\AndroidManifest.xml:12:9-14:37
+97            android:name="com.facebook.soloader.enabled"
+97-->[com.facebook.soloader:soloader:0.10.5] C:\Users\rwd31\.gradle\caches\transforms-3\ec3312a013bd7d8a70466a1977a1dba4\transformed\jetified-soloader-0.10.5\AndroidManifest.xml:13:13-57
+98            android:value="false" />
+98-->[com.facebook.soloader:soloader:0.10.5] C:\Users\rwd31\.gradle\caches\transforms-3\ec3312a013bd7d8a70466a1977a1dba4\transformed\jetified-soloader-0.10.5\AndroidManifest.xml:14:13-34
+99
+100        <provider
+100-->[androidx.emoji2:emoji2:1.2.0] C:\Users\rwd31\.gradle\caches\transforms-3\259206a491dfa4b8b6052b2b1c41d979\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+101            android:name="androidx.startup.InitializationProvider"
+101-->[androidx.emoji2:emoji2:1.2.0] C:\Users\rwd31\.gradle\caches\transforms-3\259206a491dfa4b8b6052b2b1c41d979\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
+102            android:authorities="com.polines.sikema.androidx-startup"
+102-->[androidx.emoji2:emoji2:1.2.0] C:\Users\rwd31\.gradle\caches\transforms-3\259206a491dfa4b8b6052b2b1c41d979\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
+103            android:exported="false" >
+103-->[androidx.emoji2:emoji2:1.2.0] C:\Users\rwd31\.gradle\caches\transforms-3\259206a491dfa4b8b6052b2b1c41d979\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
+104            <meta-data
+104-->[androidx.emoji2:emoji2:1.2.0] C:\Users\rwd31\.gradle\caches\transforms-3\259206a491dfa4b8b6052b2b1c41d979\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+105                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+105-->[androidx.emoji2:emoji2:1.2.0] C:\Users\rwd31\.gradle\caches\transforms-3\259206a491dfa4b8b6052b2b1c41d979\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
+106                android:value="androidx.startup" />
+106-->[androidx.emoji2:emoji2:1.2.0] C:\Users\rwd31\.gradle\caches\transforms-3\259206a491dfa4b8b6052b2b1c41d979\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
+107            <meta-data
+107-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\rwd31\.gradle\caches\transforms-3\b1c537e6049df5a2dcb1a9b20b1a8868\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+108                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+108-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\rwd31\.gradle\caches\transforms-3\b1c537e6049df5a2dcb1a9b20b1a8868\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+109                android:value="androidx.startup" />
+109-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\rwd31\.gradle\caches\transforms-3\b1c537e6049df5a2dcb1a9b20b1a8868\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+110        </provider>
+111
+112        <service
+112-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\rwd31\.gradle\caches\transforms-3\e39449332b16abbff71917ad5661bdd3\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:29:9-35:19
+113            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+113-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\rwd31\.gradle\caches\transforms-3\e39449332b16abbff71917ad5661bdd3\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:30:13-103
+114            android:exported="false" >
+114-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\rwd31\.gradle\caches\transforms-3\e39449332b16abbff71917ad5661bdd3\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:31:13-37
+115            <meta-data
+115-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\rwd31\.gradle\caches\transforms-3\e39449332b16abbff71917ad5661bdd3\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:32:13-34:39
+116                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+116-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\rwd31\.gradle\caches\transforms-3\e39449332b16abbff71917ad5661bdd3\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:33:17-94
+117                android:value="cct" />
+117-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\rwd31\.gradle\caches\transforms-3\e39449332b16abbff71917ad5661bdd3\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:34:17-36
+118        </service>
+119        <service
+119-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\rwd31\.gradle\caches\transforms-3\5b4aa339182f7c0c9798b03e5e65fdd0\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:26:9-30:19
+120            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+120-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\rwd31\.gradle\caches\transforms-3\5b4aa339182f7c0c9798b03e5e65fdd0\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:27:13-117
+121            android:exported="false"
+121-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\rwd31\.gradle\caches\transforms-3\5b4aa339182f7c0c9798b03e5e65fdd0\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:28:13-37
+122            android:permission="android.permission.BIND_JOB_SERVICE" >
+122-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\rwd31\.gradle\caches\transforms-3\5b4aa339182f7c0c9798b03e5e65fdd0\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:29:13-69
+123        </service>
+124
+125        <receiver
+125-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\rwd31\.gradle\caches\transforms-3\5b4aa339182f7c0c9798b03e5e65fdd0\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:32:9-34:40
+126            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+126-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\rwd31\.gradle\caches\transforms-3\5b4aa339182f7c0c9798b03e5e65fdd0\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:33:13-132
+127            android:exported="false" />
+127-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\rwd31\.gradle\caches\transforms-3\5b4aa339182f7c0c9798b03e5e65fdd0\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:34:13-37
+128    </application>
+129
+130</manifest>

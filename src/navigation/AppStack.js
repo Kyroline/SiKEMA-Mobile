@@ -7,14 +7,14 @@ import Student from '../screens/Student'
 const AppStack = () => {
     const { userInfo } = useContext(AuthContext)
 
-    if (userInfo.student !== null) {
+    if (userInfo.student != null) {
         console.log(`User is student`)
         return (
             <Student/>
         )
     }
 
-    if (userInfo.lecturer !== null) {
+    if (userInfo.lecturer != null) {
         console.log(`User is lecturer`)
         return (
             <Lecturer />

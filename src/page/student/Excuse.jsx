@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { View, ScrollView, Text, StyleSheet, Pressable, TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome6'
 import DocumentPicker from 'react-native-document-picker'
 import { APIClient } from '../../api/backend'
+import { AuthContext } from '../../context/AuthContext'
+import { Linking } from 'react-native'
+import CommonPageWithHeader from '../../components/CommonPageWithHeader'
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -34,6 +38,7 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 50,
         borderBottomRightRadius: 50,
         height: 300,
+        overflow: 'hidden',
         position: 'absolute',
         width: 400,
     },
@@ -64,11 +69,13 @@ const styles = StyleSheet.create({
         color: '#000',
         fontSize: 12,
         fontWeight: '300',
+        fontFamily: 'Poppins-Regular',
     },
     parameterValue: {
         alignItems: 'center',
         color: '#000',
         fontSize: 18,
+        fontFamily: 'Poppins-SemiBold',
         fontWeight: '100',
     },
     buttonStyle: {
@@ -90,8 +97,58 @@ const styles = StyleSheet.create({
     },
 })
 
+const buttonStyle = StyleSheet.create({
+    container: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    button: {
+        backgroundColor: '#E46B6B',
+        padding: 10,
+        borderRadius: 5,
+        margin: 10,
+    },
+    buttonText: {
+        color: 'white',
+        fontFamily: "Poppins-Bold"
+    },
+    fileName: {
+        marginTop: 20,
+        fontSize: 16,
+    },
+});
+
 const Excuse = ({ route, navigation }) => {
+    const { eventId } = route.params;
+    const [absent, setAbsent] = useState(null)
+    const [excuse, setExcuse] = useState(null)
+    const { jwtToken, userInfo } = useContext(AuthContext)
     const [excuseFile, setExcuseFile] = useState(null)
+
+    const getAbsentData = async () => {
+        try {
+            let res = await APIClient(jwtToken).get('api/student/' + userInfo.student.ID + '/event/' + eventId + '/absent')
+            
+            let res2 = await APIClient(jwtToken).get('api/student/' + userInfo.student.ID + '/absent/' + res.data.data.id + '/excuse')
+            console.log(res.data.data)
+            setAbsent(res.data.data)
+            setExcuse(res2.data.data)
+            // await getExcuseData()
+        } catch (error) {
+
+        }
+    }
+
+    const getExcuseData = async () => {
+        try {
+            let res = await APIClient(jwtToken).get('api/student/' + userInfo.student.ID + '/absent/' + absent.id + '/excuse')
+            setExcuse(res.data.data)
+        } catch (error) {
+
+        }
+    }
 
     const uploadImage = async () => {
         //Check if any file is selected or not
@@ -104,9 +161,27 @@ const Excuse = ({ route, navigation }) => {
             console.log(fileToUpload[0].uri)
 
             APIClient("", 'multipart/form-data').post("/upload", data
-            ).catch(error => {
-                console.log(`Login error : ${error.response.data}`)
-            });
+            ).then(res => {
+                var uploadedFileName = res.data.data
+                if (excuse != null) {
+                    APIClient(jwtToken).patch('/api/student/' + userInfo.student.ID + '/excuse/' + excuse.id, {
+                        'attachment': uploadedFileName,
+                        'absent_id': parseInt(absent.id),
+                    }).then(() => {
+                        getAbsentData()
+                    })
+                } else {
+                    APIClient(jwtToken).post('/api/student/' + userInfo.student.ID + '/excuse', {
+                        'attachment': uploadedFileName,
+                        'absent_id': parseInt(absent.id),
+                    }).then(() => {
+                        getAbsentData()
+                    })
+                }
+            })
+                .catch(error => {
+                    console.log(`Login error : ${error.response.data}`)
+                });
         } else {
             alert('Pilih dokumen terlebih dahulu! ');
         }
@@ -135,6 +210,21 @@ const Excuse = ({ route, navigation }) => {
         }
     }
 
+    const openFile = () => {
+        Linking.openURL('http://192.168.0.116:8080/files/' + excuse.attachment);
+    }
+    useEffect(() => {
+        const unsubscribe = navigation.addListener('focus', () => {
+            getAbsentData()
+        });
+
+        // Return the function to unsubscribe from the event so it gets removed on unmount
+        return unsubscribe;
+    }, [navigation]);
+    useEffect(() => {
+        getAbsentData()
+    }, [eventId])
+
     useEffect(() => {
         if (excuseFile != null) {
             uploadImage()
@@ -142,48 +232,109 @@ const Excuse = ({ route, navigation }) => {
         }
     }, [excuseFile])
 
+
+
+
     return (
-        <ScrollView style={styles.container}>
-            <View style={styles.header}>
-                <View style={styles.headerBackground} />
-                <View style={styles.headerSubcard} />
-                <View style={styles.headerTitle} >
-                    <Pressable style={styles.setting} onPress={() => { }}>
-                        <Icon name="chevron-left" size={20} color="white" />
-                    </Pressable>
-                    <Text style={styles.title}>Detail Ketidakhadiran</Text>
-                </View>
-                <View style={styles.card}>
-                    <View style={{ flex: 1, flexDirection: 'column' }}>
-                        <View style={{ marginBottom: 5 }}>
-                            <Text style={styles.points}>Mata Kuliah</Text>
-                            <Text style={styles.parameterValue}>Perancangan Sistem Informasi</Text>
-                        </View>
-                        <View style={{ marginBottom: 5 }}>
-                            <Text style={styles.points}>Dosen</Text>
-                            <Text style={styles.parameterValue}>Kurnianingsih, S.T.,M.T.,Ph.D., Prof.</Text>
-                        </View>
-                        <Text style={{ marginBottom: 5 }}>Pertemuan 1</Text>
-                        <View style={{ marginBottom: 5 }}>
-                            <Text style={styles.points}>Tanggal</Text>
-                            <Text style={styles.parameterValue}>15 November 2023</Text>
-                        </View>
-                        <View style={{ marginBottom: 5 }}>
-                            <Text style={styles.points}>Status</Text>
-                            <Text style={styles.parameterValue}>TIDAK HADIR</Text>
-                        </View>
-                        <View>
-                            <TouchableOpacity
-                                style={styles.buttonStyle}
-                                onPress={selectFile}>
-                                <Text style={styles.buttonText}>submit</Text>
-                            </TouchableOpacity>
+        <CommonPageWithHeader
+            showBackIcon={true}
+            backIconAction={() => { navigation.goBack() }}
+            showBackground={true}>
+            <View style={styles.card}>
+                <View style={{ flex: 1, flexDirection: 'column' }}>
+                    <View style={{ marginBottom: 5 }}>
+                        <Text style={styles.parameter}>Mata Kuliah</Text>
+                        <Text style={styles.parameterValue}>{absent ? absent.event.course.name : ''}</Text>
+                    </View>
+                    <View style={{ marginBottom: 5 }}>
+                        <Text style={styles.parameter}>Dosen</Text>
+                        <Text style={styles.parameterValue}>{absent ? absent.event.lecturer.name : ''}</Text>
+                    </View>
+                    <View
+                        style={{
+                            borderBottomColor: 'black',
+                            borderBottomWidth: StyleSheet.hairlineWidth,
+                        }}
+                    />
+                    <View style={{ marginBottom: 5 }}>
+                        <Text style={styles.parameter}>Pertemuan</Text>
+                        <Text style={styles.parameterValue}>{absent ? absent.event.meet : ''}</Text>
+                    </View>
+                    <View style={{ marginBottom: 5 }}>
+                        <Text style={styles.parameter}>Tanggal</Text>
+                        <Text style={styles.parameterValue}>{absent ? new Date(absent.event.created_at).toISOString().split('T')[0] : ''}</Text>
+                    </View>
+                    <View style={{ marginBottom: 5 }}>
+                        <Text style={styles.parameter}>Status</Text>
+                        <Text style={styles.parameterValue}>TIDAK HADIR</Text>
+                    </View>
+                    <View
+                        style={{
+                            borderBottomColor: 'black',
+                            borderBottomWidth: StyleSheet.hairlineWidth,
+                        }}
+                    />
+                    {excuse != null ? (
+                        <>
+                            <View style={{ marginBottom: 5 }}>
+                                <Text style={styles.parameter}>File Surat Izin</Text>
+                                <Text style={styles.parameterValue}>{excuse ? excuse.attachment : ''}</Text>
+                            </View>
+                            <View style={{ marginBottom: 5 }}>
+                                <Text style={styles.parameter}>Status Gugatan</Text>
+                                <Text style={styles.parameterValue}>{excuse ? excuse.excuse : ''}</Text>
+                            </View>
+                            <View style={{ marginBottom: 5 }}>
+                                <Text style={styles.parameter}>Komentar PBM</Text>
+                                <Text style={styles.parameterValue}>{excuse ? (
+                                    (() => {
+                                        switch (excuse.status) {
+                                            case 1:
+                                                return 'Ditolak';
+                                            case 2:
+                                                return 'Approved'
+                                            default:
+                                                return 'PENDING';
+                                        }
+                                    })()
+                                ) : ''}</Text>
+                            </View>
+                        </>
+                    ) : ''
+                    }
+
+                    <View>
+                        <View style={buttonStyle.container}>
+                            {excuse != null ? (() => {
+                                if (excuse.status == 0)
+                                    return (
+                                        <>
+                                            <TouchableOpacity style={buttonStyle.button} onPress={openFile}>
+                                                <Text style={buttonStyle.buttonText}>Cek Surat Izin</Text>
+                                            </TouchableOpacity>
+
+                                            <TouchableOpacity style={buttonStyle.button} onPress={selectFile}>
+                                                <Text style={buttonStyle.buttonText}>Ganti Surat Izin</Text>
+                                            </TouchableOpacity>
+                                        </>
+                                    )
+                                else if (excuse.status == 1 || excuse.status == 2)
+                                    return (
+                                        <TouchableOpacity style={buttonStyle.button} onPress={openFile}>
+                                            <Text style={buttonStyle.buttonText}>Cek Surat Izin</Text>
+                                        </TouchableOpacity>
+                                    )
+                            }
+                            )() : (
+                                <TouchableOpacity style={buttonStyle.button} onPress={selectFile}>
+                                    <Text style={buttonStyle.buttonText}>Upload Surat Izin</Text>
+                                </TouchableOpacity>
+                            )}
                         </View>
                     </View>
                 </View>
             </View>
-        </ScrollView>
+        </CommonPageWithHeader>
     )
 }
-
 export default Excuse

@@ -18,7 +18,7 @@ const Login = () => {
     {/* Header Text Logo */}
 
       <Text style={style.mainHeader}>
-        SiKEMA.
+        SiKEMA. 
       </Text>
 
     {/* Body Login */}

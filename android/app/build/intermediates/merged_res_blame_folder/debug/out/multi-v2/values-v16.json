@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.polines.sikema.app-mergeDebugResources-35:/values-v16/values-v16.xml",
+            "outputFile": "com.polines.sikema.app-mergeDebugResources-39:/values-v16/values-v16.xml",
             "map": [
                 {
                     "source": "C:\\Users\\rwd31\\.gradle\\caches\\transforms-3\\9623e378e4dfc57c47793d0ffd25ee05\\transformed\\core-1.8.0\\res\\values-v16\\values-v16.xml",

@@ -10,9 +10,9 @@ const CustomDrawer = (props) => {
             <DrawerContentScrollView {...props} contentContainerStyle={{ backgroundColor: '#E46B6B' }}>
                 <View style={{ padding: 20 }}>
                     <Image source={require('../images/user_profile.png')} style={{ height: 80, width: 80, borderRadius: 40, marginBottom: 10 }} />
-                    <Text style={{ marginBottom: 5, color: '#fff', fontWeight: 'bold', fontSize: 20 }}>{userInfo.student.Name ?? userInfo.lecturer.Name}</Text>
-                    <Text style={{ marginBottom: 5, color: '#fff', fontSize: 16 }}>{userInfo.student.Nim ?? userInfo.lecturer.Nim}</Text>
-                    <Text style={{ marginBottom: 5, color: '#fff', fontSize: 12 }}>{userInfo.email ?? 'No email'}</Text>
+                    <Text style={{ marginBottom: 5, color: '#fff', fontFamily: 'Poppins-Bold', fontSize: 20 }}>{userInfo.student ? userInfo.student.Name : userInfo.lecturer.Name}</Text>
+                    <Text style={{ marginBottom: 0, color: '#fff', fontFamily: 'Poppins-Regular', fontSize: 16 }}>{userInfo.student ? userInfo.student.Nim : userInfo.lecturer.Nim}</Text>
+                    <Text style={{ marginBottom: 0, color: '#fff', fontFamily: 'Poppins-Regular', fontSize: 12 }}>{userInfo.email ?? 'No email'}</Text>
                 </View>
                 <View style={{ flex: 1, backgroundColor: '#fff' }}>
                     <DrawerItemList {...props} />
@@ -22,7 +22,6 @@ const CustomDrawer = (props) => {
                     />
                 </View>
             </DrawerContentScrollView>
-            <Text>Testtttt</Text>
         </View>
     )
 }
