@@ -179,7 +179,6 @@ export const AuthProvider = ({ children }) => {
                 'course_id': parseInt(selectedCourse),
                 'meet': parseInt(selectedMeet),
             })
-            hideNewEvent()
         }
     }
 

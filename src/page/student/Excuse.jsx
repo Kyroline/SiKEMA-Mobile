@@ -212,6 +212,7 @@ const Excuse = ({ route, navigation }) => {
 
     const openFile = () => {
         Linking.openURL('http://192.168.0.116:8080/files/' + excuse.attachment);
+        // Linking.openURL('https://api.carolynn.my.id/files/' + excuse.attachment);
     }
     useEffect(() => {
         const unsubscribe = navigation.addListener('focus', () => {

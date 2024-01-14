@@ -5,6 +5,7 @@ import { AuthContext } from '../context/AuthContext';
 export const APIClient = (token = "", contentType = 'application/json') => {
     // const {logout} = useContext(AuthContext)
     var instance = axios.create({
+        // baseURL: 'https://api.carolynn.my.id',
         baseURL: 'http://192.168.0.116:8080',
         timeout: 5000,
         headers: {
