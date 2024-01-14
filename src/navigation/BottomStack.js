@@ -88,7 +88,8 @@ export const LecturerBottomStack = () => {
                         </View>
                     ),
                     tabBarButton: (props) => (
-                        <QRButton onPress={showNewEvent} >
+                        // <QRButton onPress={showNewEvent} >
+                        <QRButton onPress={() => {navigation.navigate('Modal.NewEvent')}} >
                             {props.children}
                         </QRButton>
                     )
@@ -172,7 +173,8 @@ export const StudentBottomStack = () => {
                         </View>
                     ),
                     tabBarButton: (props) => (
-                        <QRButton onPress={showQR} >
+                    // <QRButton onPress={showQR} >
+                    <QRButton onPress={() => {navigation.navigate('Modal.QRCode')}} >
                             {props.children}
                         </QRButton>
                     )
