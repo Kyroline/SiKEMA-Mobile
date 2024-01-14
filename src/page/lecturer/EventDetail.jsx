@@ -99,7 +99,7 @@ const EventDetail = ({ route, navigation }) => {
         const server = TcpSocket.createServer(function (socket) {
             console.log('Connecting' + socket.address())
             socket.on('data', (data) => {
-                APIClient(jwtToken).post('/api/lecturer/' + userInfo.lecturer.ID + '/event/' + eventId + '/student', {
+                APIClient({token: jwtToken}).post('/api/lecturer/' + userInfo.lecturer.ID + '/event/' + eventId + '/student', {
                     "student_id": [data.toString('utf-8')],
                 })
                 socket.write('Echo server ' + data);
@@ -116,12 +116,12 @@ const EventDetail = ({ route, navigation }) => {
             });
         }).listen({ port: 7777, host: '0.0.0.0' });
 
-        APIClient(jwtToken).patch('/api/lecturer/' + userInfo.lecturer.ID + '/event/' + eventId, {
+        APIClient({token: jwtToken}).patch('/api/lecturer/' + userInfo.lecturer.ID + '/event/' + eventId, {
             "status": 1,
         })
         let SSID = await AsyncStorage.getItem('SSID')
         let Password = await AsyncStorage.getItem('Password')
-        APIClient(jwtToken).post('/api/lecturer/' + userInfo.lecturer.ID + '/event/' + eventId + '/qrcode', {
+        APIClient({token: jwtToken}).post('/api/lecturer/' + userInfo.lecturer.ID + '/event/' + eventId + '/qrcode', {
             "ssid": SSID,
             "password": Password,
         })
@@ -135,7 +135,7 @@ const EventDetail = ({ route, navigation }) => {
         if (state) {
             await HotspotManager.setHotspotEnabled(false)
         }
-        APIClient(jwtToken).patch('/api/lecturer/' + userInfo.lecturer.ID + '/event/' + eventId, {
+        APIClient({token: jwtToken}).patch('/api/lecturer/' + userInfo.lecturer.ID + '/event/' + eventId, {
             "status": 0,
         })
         setVisible(false)
@@ -145,9 +145,9 @@ const EventDetail = ({ route, navigation }) => {
     const [eventData, setEventData] = useState([])
 
     const getEventData = async () => {
-        let res1 = await APIClient(jwtToken).get('/api/lecturer/' + userInfo.lecturer.ID + '/event/' + eventId)
+        let res1 = await APIClient({token: jwtToken}).get('/api/lecturer/' + userInfo.lecturer.ID + '/event/' + eventId)
 
-        let res2 = await APIClient(jwtToken).get(`/api/class/${res1.data.data.class_id}`)
+        let res2 = await APIClient({token: jwtToken}).get(`/api/class/${res1.data.data.class_id}`)
         getPresent(res2.data.data.students, res1.data.data)
     }
 
@@ -169,11 +169,11 @@ const EventDetail = ({ route, navigation }) => {
         try {
             let res
             if (newState) {
-                res = await APIClient(jwtToken).post('/api/lecturer/' + userInfo.lecturer.ID + '/event/' + eventId + '/student', {
+                res = await APIClient({token: jwtToken}).post('/api/lecturer/' + userInfo.lecturer.ID + '/event/' + eventId + '/student', {
                     "student_id": [nim],
                 })
             } else {
-                res = await APIClient(jwtToken).delete('/api/lecturer/' + userInfo.lecturer.ID + '/event/' + eventId + '/student', {
+                res = await APIClient({token: jwtToken}).delete('/api/lecturer/' + userInfo.lecturer.ID + '/event/' + eventId + '/student', {
                     data: {
                         student_id: [nim],
                     }
@@ -181,10 +181,7 @@ const EventDetail = ({ route, navigation }) => {
             }
             const newStudentData = [...studentData];
             const index = studentData.findIndex(item => item.Nim === nim);
-
-            // if request is successful, set the status of said student to be the same as the status sent,
-            // if not then revert by inversing the newState
-            console.log('Absen berhasil')
+            
             if (index !== -1) {
                 newStudentData[index].status = newState ? 1 : 0;
                 setStudentData(newStudentData)
@@ -214,7 +211,7 @@ const EventDetail = ({ route, navigation }) => {
     }
 
     const finalizeEvent = async () => {
-        let res = await APIClient(jwtToken).patch('/api/lecturer/' + userInfo.lecturer.ID + '/event/' + eventId + '/finalize')
+        let res = await APIClient({token: jwtToken}).patch('/api/lecturer/' + userInfo.lecturer.ID + '/event/' + eventId + '/finalize')
         getEventData()
     }
 

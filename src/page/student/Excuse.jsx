@@ -121,6 +121,7 @@ const buttonStyle = StyleSheet.create({
 });
 
 const Excuse = ({ route, navigation }) => {
+    const abortController = new AbortController()
     const { eventId } = route.params;
     const [absent, setAbsent] = useState(null)
     const [excuse, setExcuse] = useState(null)
@@ -129,22 +130,11 @@ const Excuse = ({ route, navigation }) => {
 
     const getAbsentData = async () => {
         try {
-            let res = await APIClient(jwtToken).get('api/student/' + userInfo.student.ID + '/event/' + eventId + '/absent')
-            
-            let res2 = await APIClient(jwtToken).get('api/student/' + userInfo.student.ID + '/absent/' + res.data.data.id + '/excuse')
-            console.log(res.data.data)
+            let res = await APIClient({token: jwtToken}).get('api/student/' + userInfo.student.ID + '/event/' + eventId + '/absent')
             setAbsent(res.data.data)
+
+            let res2 = await APIClient({token: jwtToken}).get('api/student/' + userInfo.student.ID + '/absent/' + res.data.data.id + '/excuse')
             setExcuse(res2.data.data)
-            // await getExcuseData()
-        } catch (error) {
-
-        }
-    }
-
-    const getExcuseData = async () => {
-        try {
-            let res = await APIClient(jwtToken).get('api/student/' + userInfo.student.ID + '/absent/' + absent.id + '/excuse')
-            setExcuse(res.data.data)
         } catch (error) {
 
         }
@@ -199,6 +189,7 @@ const Excuse = ({ route, navigation }) => {
             });
             console.log('res : ' + JSON.stringify(res))
             setExcuseFile(res)
+            uploadImage()
         } catch (err) {
             setExcuseFile(null)
             if (DocumentPicker.isCancel(err)) {
@@ -214,27 +205,19 @@ const Excuse = ({ route, navigation }) => {
         Linking.openURL('http://192.168.0.116:8080/files/' + excuse.attachment);
         // Linking.openURL('https://api.carolynn.my.id/files/' + excuse.attachment);
     }
-    useEffect(() => {
-        const unsubscribe = navigation.addListener('focus', () => {
-            getAbsentData()
-        });
 
-        // Return the function to unsubscribe from the event so it gets removed on unmount
-        return unsubscribe;
-    }, [navigation]);
+    // useEffect(() => {
+    //     const unsubscribe = navigation.addListener('focus', () => {
+    //         getAbsentData()
+    //     });
+
+    //     // Return the function to unsubscribe from the event so it gets removed on unmount
+    //     return unsubscribe;
+    // }, [navigation]);
+
     useEffect(() => {
         getAbsentData()
     }, [eventId])
-
-    useEffect(() => {
-        if (excuseFile != null) {
-            uploadImage()
-            console.log("Excuse file upload attempt")
-        }
-    }, [excuseFile])
-
-
-
 
     return (
         <CommonPageWithHeader
@@ -267,7 +250,7 @@ const Excuse = ({ route, navigation }) => {
                     </View>
                     <View style={{ marginBottom: 5 }}>
                         <Text style={styles.parameter}>Status</Text>
-                        <Text style={styles.parameterValue}>TIDAK HADIR</Text>
+                        <Text style={styles.parameterValue}>TIDAK HADIR {excuse == null ? '/ TIDAK ADA KETERANGAN' : ''}</Text>
                     </View>
                     <View
                         style={{
@@ -279,26 +262,25 @@ const Excuse = ({ route, navigation }) => {
                         <>
                             <View style={{ marginBottom: 5 }}>
                                 <Text style={styles.parameter}>File Surat Izin</Text>
-                                <Text style={styles.parameterValue}>{excuse ? excuse.attachment : ''}</Text>
+                                <Text style={styles.parameterValue}>{excuse.attachment ?? ''}</Text>
                             </View>
                             <View style={{ marginBottom: 5 }}>
                                 <Text style={styles.parameter}>Status Gugatan</Text>
-                                <Text style={styles.parameterValue}>{excuse ? excuse.excuse : ''}</Text>
-                            </View>
-                            <View style={{ marginBottom: 5 }}>
-                                <Text style={styles.parameter}>Komentar PBM</Text>
-                                <Text style={styles.parameterValue}>{excuse ? (
+                                <Text style={styles.parameterValue}>{(
                                     (() => {
                                         switch (excuse.status) {
                                             case 1:
-                                                return 'Ditolak';
+                                                return 'Ditolak'
                                             case 2:
                                                 return 'Approved'
                                             default:
-                                                return 'PENDING';
+                                                return 'PENDING'
                                         }
                                     })()
-                                ) : ''}</Text>
+                                )}</Text></View>
+                            <View style={{ marginBottom: 5 }}>
+                                <Text style={styles.parameter}>Komentar PBM</Text>
+                                <Text style={styles.parameterValue}>{excuse.excuse != '' ? excuse.excuse : '-'}</Text>
                             </View>
                         </>
                     ) : ''

@@ -96,9 +96,8 @@ const Dashboard = ({ navigation }) => {
     const [recent, setRecent] = useState(null)
 
     const getRecentEvent = async () => {
-        let res = await APIClient(jwtToken).get(`/api/lecturer/${userInfo.lecturer.ID}/event/recent`)
+        let res = await APIClient({token: jwtToken}).get(`/api/lecturer/${userInfo.lecturer.ID}/event/recent`)
         setRecent(res.data.data)
-        console.log(`HEHEHEHE ${res.data.data}`)
     }
 
     useEffect(() => {

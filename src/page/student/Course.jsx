@@ -33,7 +33,7 @@ const Course = ({ navigation }) => {
     const { jwtToken, userInfo } = useContext(AuthContext)
 
     const getCourseData = async () => {
-        let courseRes = await APIClient(jwtToken).get('api/student/' + userInfo.student.ID + '/course')
+        let courseRes = await APIClient({token: jwtToken}).get('api/student/' + userInfo.student.ID + '/course')
         setCourse(courseRes.data.data)
     }
     useEffect(() => {
@@ -51,14 +51,14 @@ const Course = ({ navigation }) => {
     return (
         <CommonPageWithHeader showBackIcon={false}>
             {course.map((item) => (
-                <TouchableOpacity
+                <TouchableOpacity key={item.course_id + item.class_id}
                     onPress={() => {
                         navigation.navigate('Student.Event', {
                             courseId: item.course_id,
                             classId: item.class_id
                         });
                     }}>
-                    <View key={item.course_id + item.class_id} style={styles.card}>
+                    <View style={styles.card}>
                         <View style={{ flex: 1, flexDirection: 'column' }}>
                             <View style={{ marginBottom: 5 }}>
                                 <Text style={styles.parameter}>Mata Kuliah</Text>
@@ -67,7 +67,7 @@ const Course = ({ navigation }) => {
                             <View style={{ marginBottom: 5 }}>
                                 <Text style={styles.parameter}>Dosen</Text>
                                 {item.lecturers.map((lecturer) => (
-                                    <Text style={styles.parameterValue}>{lecturer.name}</Text>
+                                    <Text key={item.course_id + item.class_id + lecturer.ID} style={styles.parameterValue}>{lecturer.name}</Text>
                                 ))}
                             </View>
                         </View>

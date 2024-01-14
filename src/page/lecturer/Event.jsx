@@ -33,7 +33,7 @@ const Event = ({ route, navigation }) => {
     const [event, setEvent] = useState([])
 
     const getEventData = async () => {
-        let res = await APIClient(jwtToken).get('api/lecturer/' + userInfo.lecturer.ID + '/event?class_id=' + classId + '&course_id=' + courseId)
+        let res = await APIClient({token: jwtToken}).get('api/lecturer/' + userInfo.lecturer.ID + '/event?class_id=' + classId + '&course_id=' + courseId)
         setEvent(res.data.data)
     }
 

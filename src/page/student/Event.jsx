@@ -33,7 +33,7 @@ const Event = ({ route, navigation }) => {
     const [attendance, setAttendance] = useState([])
 
     const getAttendanceData = async () => {
-        let courseRes = await APIClient(jwtToken).get('api/student/' + userInfo.student.ID + '/course/' + courseId + '/attendance')
+        let courseRes = await APIClient({token: jwtToken}).get('api/student/' + userInfo.student.ID + '/course/' + courseId + '/attendance')
         setAttendance(courseRes.data.data)
     }
     useEffect(() => {

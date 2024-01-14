@@ -33,7 +33,7 @@ const Course = ({ navigation }) => {
     const { jwtToken, userInfo } = useContext(AuthContext)
 
     const getCourseData = async () => {
-        let courseRes = await APIClient(jwtToken).get('api/lecturer/' + userInfo.lecturer.ID + '/course')
+        let courseRes = await APIClient({token: jwtToken}).get('api/lecturer/' + userInfo.lecturer.ID + '/course')
         setCourse(courseRes.data.data)
     }
     useEffect(() => {

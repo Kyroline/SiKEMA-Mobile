@@ -96,14 +96,17 @@ const StudentDashboard = ({ navigation }) => {
     const [recent, setRecent] = useState(null)
 
     const getRecentEvent = async () => {
-        let res = await APIClient(jwtToken).get(`/api/student/${userInfo.student.ID}/event/recent`)
-        setRecent(res.data.data)
-        console.log(`HEHEHEHE ${res.data.data}`)
+        try {
+            let res = await APIClient({token: jwtToken}).get(`/api/student/${userInfo.student.ID}/event/recent`)
+            setRecent(res.data.data)
+            console.log(`HEHEHEHE ${res.data.data}`)
+        } catch (error) {
+            setRecent(null)
+        }
     }
 
     useEffect(() => {
         const unsubscribe = navigation.addListener('focus', () => {
-            setRecent(null)
             getRecentEvent()
         });
 
