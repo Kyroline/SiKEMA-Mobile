@@ -1,19 +1,29 @@
-import React from 'react';
+import React, { forwardRef, useRef, useImperativeHandle } from 'react';
 import SelectDropdown from 'react-native-select-dropdown';
 import { StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome6'
 
-const Select = ({ data, onSelect }) => {
+const Select = forwardRef(({ data, onSelect }, ref) => {
+    const dropdownRef = useRef(null);
     const countriesWithKeys = data.map((country, index) => ({ key: index.toString(), ...country }));
 
     const handleSelect = (selectedItem, index) => {
-        // Pass the id of the selected item to the onSelect prop
         onSelect(selectedItem.value, selectedItem.label);
     }
+
+    const reset = () => {
+        // Lakukan reset pada SelectDropdown di sini
+        dropdownRef.current.reset();
+    };
+
+    useImperativeHandle(ref, () => ({
+        reset: reset,
+    }));
 
     return (
         <SelectDropdown
             data={countriesWithKeys}
+            ref={dropdownRef}
             onSelect={handleSelect}
             buttonTextAfterSelection={(selectedItem, index) => {
                 return selectedItem.label
@@ -33,7 +43,7 @@ const Select = ({ data, onSelect }) => {
             rowTextStyle={styles.dropdown1RowTxtStyle}
         />
     );
-};
+});
 
 const styles = StyleSheet.create({
     shadow: {
@@ -61,10 +71,10 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#444',
     },
-    dropdown1BtnTxtStyle: { color: '#444', textAlign: 'left' },
+    dropdown1BtnTxtStyle: { color: '#444', textAlign: 'left', fontFamily: 'Poppins-Regular', fontSize: 12 },
     dropdown1DropdownStyle: { backgroundColor: '#EFEFEF' },
     dropdown1RowStyle: { backgroundColor: '#EFEFEF', borderBottomColor: '#C5C5C5' },
-    dropdown1RowTxtStyle: { color: '#444', textAlign: 'left' },
+    dropdown1RowTxtStyle: { color: '#444', textAlign: 'left', fontFamily: 'Poppins-Regular' },
 });
 
 export default Select
